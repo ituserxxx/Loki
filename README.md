@@ -1,3 +1,6 @@
+
+grafana 官网示例版本搭建请查看：https://github.com/ituserxxx/grafana_loki_log_install_demo.git
+
 loki  日志系统搭建(以 go 程序为例)
 
 ### 启动 go 服务
