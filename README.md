@@ -15,7 +15,7 @@ go build -o testgo main.go
 nohup ./testgo &
 ```
 
-启动 loki 日志服务系统
+启动 loki 日志服务系统 **注意各个组件版本必须保持一致**
 ```
 docker compose -f docker-compose.yaml up
 ```
@@ -33,9 +33,9 @@ grafana/promtail:2.9.2
 
 在不同服务器上面,则需要在配置文件 (promtail/conifg.yml)里面的 url 写成 Loki 实例 Ip : port,然后启动
 ```
-docker run  --name promtail_testgo \
+docker run -itd --name promtail_testgo \
 -v $PWD/promtail/config.yml:/etc/promtail/config.yml  \
 -v $PWD:/var/log   \
-grafana/promtail:2.9.2
+grafana/promtail:2.9.2 --config.file=/etc/promtail/config.yml
 ```
 
