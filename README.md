@@ -89,4 +89,10 @@ docker exec -it promtail mount -t volume /var/log/a.log /var/log/xcx_api/test/a.
 ```
 docker restart promtail
 ```
+查看容器日志信息
+```
+docker inspect promtail
+```
+出现下面内容则成功
+![image](https://github.com/ituserxxx/Loki/assets/66945660/25d66e89-137f-40b2-9fd4-62f84942bdd1)
 
