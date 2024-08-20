@@ -12,10 +12,17 @@ clients:
   # - url: http://192.168.1.222:3100/loki/api/v1/push
 
 scrape_configs: 
-- job_name: system
+- job_name: system1
   static_configs:
   - targets:
       - localhost
     labels:
-      job: testgo # job 定义这个日志名称
-      __path__: /var/log/*out  # 定义需要监听的日志文件
+      job: testgo_diy_log1 # job 定义这个日志名称
+      __path__: /var/log/log1/*out  # 定义需要监听的日志文件
+- job_name: system2 #定义多个job
+  static_configs:
+  - targets:
+      - localhost
+    labels:
+      job: testgo_div_log2 # job 定义这个日志名称
+      __path__: /var/log/log2/*out  # 定义需要监听的日志文件

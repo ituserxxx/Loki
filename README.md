@@ -24,12 +24,15 @@ docker compose -f docker-compose.yaml up
 
 在同一台服务器则需要加入 loki 示例的网络中,且需要把配置文件 (promtail/conifg.yml)里面的 url 写成容器名称
 ```
-docker run  --name promtail_testgo \
---network=loki_loki \                   # 
+docker run  --rm --name promtail_testgo   \
+--network=loki_loki  \
 -v $PWD/promtail/config.yml:/etc/promtail/config.yml  \
--v $PWD:/var/log   \
+-v $PWD/diy_log:/var/log   \
 grafana/promtail:2.9.2
 ```
+
+
+
 
 在不同服务器上面,则需要在配置文件 (promtail/conifg.yml)里面的 url 写成 Loki 实例 Ip : port,然后启动
 ```
